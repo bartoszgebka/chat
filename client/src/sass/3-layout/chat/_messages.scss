@@ -1,0 +1,80 @@
+@use "../../1-abstracts" as *;
+
+.messages {
+  grid-area: messages;
+  padding-block: to-rem(15px);
+}
+
+.messages__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: to-rem(30px);
+}
+
+.message {
+  $message: &;
+
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    letter-spacing: 1px;
+
+    #{$message}__author {
+      font-weight: 600;
+      font-size: to-rem(16px);
+    }
+
+    #{$message}__date {
+      font-size: to-rem(15px);
+      color: $grey-500;
+      font-weight: 300;
+    }
+  }
+
+  &__body {
+    margin-top: to-rem(15px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: to-rem(15px);
+
+    #{$message}__text {
+      font-family: "Lato", sans-serif;
+      font-size: to-rem(17px);
+      display: inline-block;
+      background-color: $secondary-color;
+      padding: to-rem(15px);
+      border-radius: $border-radius;
+      &:first-child {
+        border-top-left-radius: 0;
+      }
+    }
+  }
+
+  &--your {
+    #{$message}__info {
+      justify-content: flex-end;
+
+      #{$message}__author {
+        order: 2;
+      }
+
+      #{$message}__date {
+        order: 1;
+      }
+    }
+
+    #{$message}__body {
+      align-items: flex-end;
+      #{$message}__text {
+        color: white;
+        background-color: $primary-color;
+        &:first-child {
+          border-top-left-radius: $border-radius;
+          border-top-right-radius: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@use "../../1-abstracts" as *;
+
+.header__members {
+  grid-area: header-members;
+  padding-block: to-rem(15px);
+  border-bottom: .5px solid $grey-500;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: white;
+
+  button {
+    display: flex;
+    align-items: center;
+    gap: to-rem(10px);
+    color: white;
+    background-color: $primary-color;
+    border-radius: $border-radius;
+    padding: to-rem(7px) to-rem(15px);
+    font-size: to-rem(17px);
+    border: none;
+    cursor: pointer;
+    span {
+      background-color: white;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      font-size: to-rem(18px);
+      color: $primary-color;
+    }
+  }
+}

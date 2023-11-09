@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "parcel src/index.html",
+    "start": "parcel src/chat.html",
     "format": "prettier --ignore-path .gitignore --write .",
-    "lint": "eslint src/js",
-    "build": "parcel build src/index.html && npm run format && npm run lint"
+    "lint": "eslint src/ts",
+    "build": "parcel build src/chat.html && npm run format && npm run lint"
   },
   "author": "Bartosz Gębka",
   "license": "ISC",
   "devDependencies": {
+    "@parcel/transformer-sass": "^2.10.2",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "@typescript-eslint/parser": "^6.10.0",
     "eslint": "^8.53.0",

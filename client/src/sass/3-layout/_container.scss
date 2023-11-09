@@ -1,0 +1,7 @@
+@use "../1-abstracts" as *;
+
+.container {
+  padding-inline: to-rem($container-padding);
+  margin-inline: auto;
+  max-width: to-rem($max-container-width);
+}
