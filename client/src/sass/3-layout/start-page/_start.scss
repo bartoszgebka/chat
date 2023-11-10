@@ -1,7 +1,7 @@
 @use "../../1-abstracts" as *;
 
 .start-page {
-  height: 100vh;
+  min-height: 100vh;
   display: grid;
   place-items: center;
 
