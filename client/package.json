@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "parcel src/index.html",
+    "start": "parcel src/chat.html",
     "format": "prettier --ignore-path .gitignore --write .",
     "lint": "eslint src/ts",
-    "build": "parcel build src/index.html && npm run format && npm run lint"
+    "build": "parcel build src/chat.html && npm run format && npm run lint"
   },
   "author": "Bartosz Gębka",
   "license": "ISC",
