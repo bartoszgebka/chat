@@ -2,11 +2,14 @@
 
 .footer__submit {
   grid-area: footer-submit;
+  position: sticky;
+  bottom: 0;
 }
 
 .submit__wrapper {
   max-width: to-rem($max-container-width);
   margin-inline: auto;
+  z-index: 2;
   display: flex;
   padding-right: to-rem(10px);
   justify-content: space-between;

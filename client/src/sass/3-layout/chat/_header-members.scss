@@ -4,6 +4,9 @@
   grid-area: header-members;
   padding-block: to-rem(10px);
   border-bottom: 0.5px solid $grey-500;
+  position: sticky;
+  top: 0;
+  z-index: 2;
   background-color: white;
 
   button {
