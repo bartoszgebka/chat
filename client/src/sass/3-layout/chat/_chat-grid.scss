@@ -1,7 +1,9 @@
+@use "../../1-abstracts" as *;
+
 .chat-grid {
   min-height: 100%;
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: to-rem(55.5px) calc(100vh - (to-rem(55.5px) + to-rem(65.5px))) to-rem(65.5px);
   grid-template-areas:
     "header-members"
     "messages"

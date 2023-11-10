@@ -3,6 +3,7 @@
 .messages {
   grid-area: messages;
   padding-block: to-rem(15px);
+  overflow-y: auto;
 }
 
 .messages__wrapper {
