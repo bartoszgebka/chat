@@ -5,25 +5,25 @@
   display: grid;
   place-items: center;
 
-  //form {
-  //  width: 100%;
-  //  display: flex;
-  //  flex-direction: column;
-  //  align-items: center;
-  //  gap: to-rem(15px);
-  //}
-  //
-  //input {
-  //  width: 100%;
-  //}
-  //
-  //button {
-  //  color: white;
-  //  background-color: $primary-color;
-  //  border-radius: $border-radius;
-  //  padding: to-rem(7px) to-rem(15px);
-  //  font-size: to-rem(21px);
-  //  border: none;
-  //  cursor: pointer;
-  //}
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: to-rem(15px);
+  }
+
+  input {
+    width: 100%;
+  }
+
+  button {
+    color: white;
+    background-color: $primary-color;
+    border-radius: $border-radius;
+    padding: to-rem(7px) to-rem(15px);
+    font-size: to-rem(21px);
+    border: none;
+    cursor: pointer;
+  }
 }
