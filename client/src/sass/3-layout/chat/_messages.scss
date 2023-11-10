@@ -8,7 +8,7 @@
 .messages__wrapper {
   display: flex;
   flex-direction: column;
-  gap: to-rem(30px);
+  gap: to-rem(25px);
 }
 
 .message {
@@ -22,29 +22,29 @@
 
     #{$message}__author {
       font-weight: 600;
-      font-size: to-rem(16px);
+      font-size: to-rem(15px);
     }
 
     #{$message}__date {
-      font-size: to-rem(15px);
+      font-size: to-rem(13px);
       color: $grey-500;
       font-weight: 300;
     }
   }
 
   &__body {
-    margin-top: to-rem(15px);
+    margin-top: to-rem(7px);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: to-rem(15px);
+    gap: to-rem(5px);
 
     #{$message}__text {
       font-family: "Lato", sans-serif;
-      font-size: to-rem(17px);
+      font-size: to-rem(16px);
       display: inline-block;
       background-color: $secondary-color;
-      padding: to-rem(15px);
+      padding: to-rem(12px);
       border-radius: $border-radius;
       &:first-child {
         border-top-left-radius: 0;
