@@ -7,7 +7,10 @@
 }
 
 .submit__wrapper {
+  max-width: to-rem($max-container-width);
+  margin-inline: auto;
   display: flex;
+  padding-right: to-rem(10px);
   justify-content: space-between;
   background-color: $secondary-color;
 
