@@ -1,0 +1,32 @@
+@use "../../1-abstracts" as *;
+
+.start-page {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-items: start;
+
+  form {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: to-rem(15px);
+  }
+
+  input {
+    width: 100%;
+  }
+
+  button {
+    color: white;
+    background-color: $primary-color;
+    border-radius: $border-radius;
+    padding: to-rem(7px) to-rem(15px);
+    font-size: to-rem(21px);
+    border: none;
+    cursor: pointer;
+  }
+}
