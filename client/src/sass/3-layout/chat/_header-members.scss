@@ -9,17 +9,27 @@
   z-index: 2;
   background-color: white;
 
-  button {
+  .btn-toolbar {
     display: flex;
-    align-items: center;
-    gap: to-rem(10px);
+    justify-content: space-between;
+  }
+
+  .show-members-btn,
+  .disconnect-btn {
     color: white;
-    background-color: $primary-color;
     border-radius: $border-radius;
     padding: to-rem(5px) to-rem(10px);
     font-size: to-rem(15px);
     border: none;
     cursor: pointer;
+  }
+
+  .show-members-btn {
+    display: flex;
+    align-items: center;
+    gap: to-rem(10px);
+    background-color: $primary-color;
+
     span {
       background-color: white;
       border-radius: 50%;
@@ -29,5 +39,9 @@
       font-size: to-rem(16px);
       color: $primary-color;
     }
+  }
+
+  .disconnect-btn {
+    background-color: $danger-color;
   }
 }
