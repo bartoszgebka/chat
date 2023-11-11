@@ -12,35 +12,13 @@ export class ChatPage extends Page {
 
   HTMLTemplate(): string {
     return `
-            <div class="chat-grid">
-                <header-component></header-component>
+        <div class="chat-grid">
+            <header-component></header-component>
 
-      <messages-component>
-            <div class="message">
-              <div class="message__info">
-                <div class="message__author">Jan Nowak</div>
-                <div class="message__date">16:45</div>
-              </div>
-              <div class="message__body">
-                <p class="message__text">Cześć!</p>
-                <p class="message__text">Co tam?</p>
-              </div>
-            </div>
+            <messages-component></messages-component>
 
-            <div class="message message--your">
-              <div class="message__info">
-                <div class="message__author">Ty</div>
-                <div class="message__date">16:47</div>
-              </div>
-              <div class="message__body">
-                <p class="message__text">Cześć!</p>
-                <p class="message__text">Wszystko okej :)</p>
-              </div>
-            </div>
-         </messages-component>
-
-      <footer-component></footer-component>
-    </div>
+            <footer-component></footer-component>
+        </div>
         `;
   }
 
@@ -54,14 +32,14 @@ export class ChatPage extends Page {
     });
 
     this.addEventListener("disconnect", () => {
+      this.messagesComponent.clear();
       this.mediator.changeState(<State>{ currentPage: StateType.START_PAGE });
     });
 
     this.addEventListener("sendMessage", (e: CustomEvent<Message>) => {
-      this.messagesComponent.addMessage({
-        ...e.detail,
-        user: this.mediator.getUser(),
-      });
+      const message: Message = { ...e.detail, user: this.mediator.getUser() };
+
+      this.messagesComponent.addMessage(message);
     });
   }
 

@@ -5,8 +5,8 @@ export class MessagesComponent extends Component {
   messagesWrapperEl: Element;
   constructor() {
     super();
-    this.style.gridArea = 'messages';
-    this.style.overflowY = 'auto';
+    this.style.gridArea = "messages";
+    this.style.overflowY = "auto";
   }
 
   HTMLTemplate(): string {
@@ -31,5 +31,9 @@ export class MessagesComponent extends Component {
             )}'></message-component>
         `;
     this.messagesWrapperEl.insertAdjacentHTML("beforeend", markup);
+  }
+
+  public clear() {
+    this.messagesWrapperEl.innerHTML = null;
   }
 }

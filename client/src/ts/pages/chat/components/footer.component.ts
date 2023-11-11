@@ -5,7 +5,7 @@ import { Message } from "../../../model/message";
 export class FooterComponent extends Component {
   constructor() {
     super();
-    this.style.gridArea = 'footer-submit';
+    this.style.gridArea = "footer-submit";
   }
 
   HTMLTemplate(): string {
