@@ -1,7 +1,6 @@
 @use "../../1-abstracts" as *;
 
 .footer__submit {
-  grid-area: footer-submit;
   position: sticky;
   bottom: 0;
 }

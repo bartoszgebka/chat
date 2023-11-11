@@ -3,6 +3,7 @@ import { Component } from "../../component";
 export class HeaderComponent extends Component {
   constructor() {
     super();
+    this.style.gridArea = 'header-members';
   }
 
   HTMLTemplate(): string {

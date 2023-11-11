@@ -5,6 +5,8 @@ export class MessagesComponent extends Component {
   messagesWrapperEl: Element;
   constructor() {
     super();
+    this.style.gridArea = 'messages';
+    this.style.overflowY = 'auto';
   }
 
   HTMLTemplate(): string {
