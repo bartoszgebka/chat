@@ -3,7 +3,7 @@ import { State, StateType } from "../../model/state";
 import { Message } from "../../model/message";
 import { MessagesComponent } from "./components/messages.component";
 import { HeaderComponent } from "./components/header.component";
-import {FooterComponent} from "./components/footer.component";
+import { FooterComponent } from "./components/footer.component";
 
 export class ChatPage extends Page {
   private headerComponent: HeaderComponent;
@@ -34,7 +34,7 @@ export class ChatPage extends Page {
       this.querySelector("messages-component")
     );
     this.footerComponent = <FooterComponent>(
-        this.querySelector("footer-component")
+      this.querySelector("footer-component")
     );
 
     this.registerHandlers();

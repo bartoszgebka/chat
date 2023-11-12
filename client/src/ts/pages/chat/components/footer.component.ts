@@ -3,7 +3,7 @@ import submitSVG from "../../../../svg/submit.svg";
 import { Message, MessageType } from "../../../model/message";
 
 export class FooterComponent extends Component {
-  private inputEl : HTMLInputElement;
+  private inputEl: HTMLInputElement;
   constructor() {
     super();
     this.style.gridArea = "footer-submit";
