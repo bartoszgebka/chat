@@ -1,5 +1,6 @@
 import { Component } from "../../component";
 import { Message, MessageType } from "../../../model/message";
+import { Helpers } from "../../../helper/helpers";
 
 export class MessageComponent extends Component {
   message: Message;
@@ -13,12 +14,15 @@ export class MessageComponent extends Component {
   HTMLTemplate(): string {
     return `
             <div class="message">
-              <div class="message__info">
-                <div class="message__author"></div>
-                <div class="message__date"></div>
-              </div>
-              <div class="message__body">
-                <p class="message__text"></p>
+              <div class="user-avatar"></div>
+              <div style="flex-grow: 1;">
+                  <div class="message__info">
+                      <div class="message__author"></div>
+                      <div class="message__date"></div>
+                  </div>
+                  <div class="message__body">
+                      <p class="message__text"></p>
+                  </div>
               </div>
             </div>
         `;
@@ -36,6 +40,10 @@ export class MessageComponent extends Component {
     if ([MessageType.JOIN, MessageType.DISCONNECT].includes(type)) {
       messageEl.classList.add(`message--${type.toLowerCase()}`);
     }
+
+    const userAvatarEl: HTMLElement = this.querySelector(".user-avatar");
+    userAvatarEl.style.backgroundColor = user.color;
+    userAvatarEl.textContent = Helpers.getUserShortName(user.name);
 
     const messagesAuthorEl = this.querySelector(".message__author");
     messagesAuthorEl.textContent = user.name;

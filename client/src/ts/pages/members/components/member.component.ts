@@ -1,5 +1,6 @@
 import { Component } from "../../component";
 import { User } from "../../../model/user";
+import { Helpers } from "../../../helper/helpers";
 
 export class MemberComponent extends Component {
   private user: User;
@@ -25,10 +26,7 @@ export class MemberComponent extends Component {
 
     const memberAvatarEl: HTMLElement = this.querySelector(".member__avatar");
     memberAvatarEl.style.backgroundColor = color;
-    memberAvatarEl.textContent = name
-      .split(" ")
-      .map((n) => n.charAt(0).toUpperCase())
-      .join(" ");
+    memberAvatarEl.textContent = Helpers.getUserShortName(name);
 
     const memberNameEl: Element = this.querySelector(".member__name");
     memberNameEl.textContent = name;

@@ -1,6 +1,6 @@
 import { Page } from "../page";
 import { State, StateType } from "../../model/state";
-import { generateRandomColor } from "../../helper/helpers";
+import { Helpers } from "../../helper/helpers";
 import { v4 as uuidv4 } from "uuid";
 
 export class StartPage extends Page {
@@ -48,7 +48,7 @@ export class StartPage extends Page {
         currentPage: StateType.CHAT,
         user: {
           name: username,
-          color: generateRandomColor(),
+          color: Helpers.generateRandomColor(),
           uuid: uuidv4(),
         },
       };
