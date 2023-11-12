@@ -1,7 +1,7 @@
-import {Page} from "../page";
-import {State, StateType} from "../../model/state";
+import { Page } from "../page";
+import { State, StateType } from "../../model/state";
 import closeSVG from "../../../svg/close.svg";
-import {User} from "../../model/user";
+import { User } from "../../model/user";
 
 export class MembersPage extends Page {
   private membersListEl: Element;
@@ -40,7 +40,9 @@ export class MembersPage extends Page {
 
   subscribeWebsocketMessages() {
     this.mediator.WSSubscribeMembers((users) => {
-      this.membersListEl.innerHTML = users.map((user) => this.getMemberMarkup(user)).join("");
+      this.membersListEl.innerHTML = users
+        .map((user) => this.getMemberMarkup(user))
+        .join("");
     });
   }
 

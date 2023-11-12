@@ -1,6 +1,7 @@
 import { Page } from "../page";
 import { State, StateType } from "../../model/state";
 import { generateRandomColor } from "../../helper/helpers";
+import { v4 as uuidv4 } from "uuid";
 
 export class StartPage extends Page {
   private errorEl: Element;
@@ -48,8 +49,8 @@ export class StartPage extends Page {
         user: {
           name: username,
           color: generateRandomColor(),
-          uuid: crypto.randomUUID(),
-        }, // TODO
+          uuid: uuidv4(),
+        },
       };
       this.mediator.changeState(newState);
     } catch (e) {

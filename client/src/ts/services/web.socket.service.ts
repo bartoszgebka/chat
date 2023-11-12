@@ -5,9 +5,9 @@ import {
   MESSAGES_PATH,
   SEND_MESSAGE_PATH,
   WS_HOST,
-} from "./consts";
-import { Message } from "./model/message";
-import { User } from "./model/user";
+} from "../helper/consts";
+import { Message } from "../model/message";
+import { User } from "../model/user";
 
 export class WebSocketService {
   private stompClient: Client = new Client({ brokerURL: WS_HOST });

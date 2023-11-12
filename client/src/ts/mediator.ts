@@ -1,7 +1,7 @@
 import { State, StateType } from "./model/state";
 import { Page } from "./pages/page";
 import { User } from "./model/user";
-import { WebSocketService } from "./web.socket.service";
+import { WebSocketService } from "./services/web.socket.service";
 import { Message } from "./model/message";
 
 export class Mediator {
