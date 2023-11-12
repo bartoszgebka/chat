@@ -47,7 +47,7 @@
     }
   }
 
-  &--your {
+  &--your:not(&--join, &--disconnected) {
     #{$message}__info {
       justify-content: flex-end;
 
@@ -62,10 +62,30 @@
 
     #{$message}__body {
       align-items: flex-end;
+
       #{$message}__text {
         color: white;
         background-color: $primary-color;
       }
     }
+  }
+
+  &--join,
+  &--disconnect {
+    #{$message}__info {
+      display: none;
+    }
+    #{$message}__body {
+      align-items: center;
+      #{$message}__text {
+        font-weight: 600;
+        color: $grey-500;
+        background-color: transparent;
+      }
+    }
+  }
+
+  &--disconnect #{$message}__body #{$message}__text {
+    color: $danger-color;
   }
 }

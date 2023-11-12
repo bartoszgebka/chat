@@ -1,5 +1,5 @@
 import { Component } from "../../component";
-import { Message } from "../../../model/message";
+import { Message, MessageType } from "../../../model/message";
 
 export class MessageComponent extends Component {
   message: Message;
@@ -25,10 +25,16 @@ export class MessageComponent extends Component {
   }
 
   connectedCallback() {
-    const { user, date, text, isYour } = this.message;
+    const { user, date, text, isYour, type } = this.message;
+
+    const messageEl = this.querySelector(".message");
 
     if (isYour) {
-      this.querySelector(".message").classList.add("message--your");
+      messageEl.classList.add("message--your");
+    }
+
+    if ([MessageType.JOIN, MessageType.DISCONNECT].includes(type)) {
+      messageEl.classList.add(`message--${type.toLowerCase()}`);
     }
 
     const messagesAuthorEl = this.querySelector(".message__author");

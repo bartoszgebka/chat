@@ -9,7 +9,7 @@ export interface Message {
 }
 
 export enum MessageType {
-  JOIN,
-  CHAT,
-  DISCONNECT,
+  JOIN = "JOIN",
+  CHAT = "CHAT",
+  DISCONNECT = "DISCONNECT",
 }
