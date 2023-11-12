@@ -32,8 +32,12 @@ export class ChatPage extends Page {
       this.querySelector("messages-component")
     );
 
+    this.registerHandlers();
+  }
+
+  private registerHandlers() {
     this.addEventListener("showMembers", () => {
-      console.log("Show members!");
+      this.mediator.changeState(<State>{ currentPage: StateType.MEMBERS });
     });
 
     this.addEventListener("disconnect", () => {
@@ -54,19 +58,21 @@ export class ChatPage extends Page {
 
       // login successful
       if (state.isConnected && state.previousPage === StateType.START_PAGE) {
-        this.mediator.WSSubscribeMessages((message) => {
-          message.isYour = this.mediator.getUser().uuid === message.user.uuid;
-          this.messagesComponent.addMessage(message);
-        });
-
-        this.mediator.WSSubscribeMembers((users) => {
-          this.headerComponent.updateMembersCount(users.length);
-        });
-
         this.mediator.WSLoginUser();
       }
     } else {
       this.setVisible(false);
     }
+  }
+
+  subscribeWebsocketMessages() {
+    this.mediator.WSSubscribeMessages((message) => {
+      message.isYour = this.mediator.getUser().uuid === message.user.uuid;
+      this.messagesComponent.addMessage(message);
+    });
+
+    this.mediator.WSSubscribeMembers((users) => {
+      this.headerComponent.updateMembersCount(users.length);
+    });
   }
 }

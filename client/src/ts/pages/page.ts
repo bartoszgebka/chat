@@ -22,4 +22,6 @@ export abstract class Page extends HTMLElement {
   abstract HTMLTemplate(): string;
 
   abstract updateState(state: State);
+
+  subscribeWebsocketMessages() {}
 }

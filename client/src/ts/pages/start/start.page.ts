@@ -1,5 +1,6 @@
 import { Page } from "../page";
 import { State, StateType } from "../../model/state";
+import { generateRandomColor } from "../../helper/helpers";
 
 export class StartPage extends Page {
   private errorEl: Element;
@@ -43,9 +44,12 @@ export class StartPage extends Page {
     try {
       await this.mediator.WSConnect();
       const newState = <State>{
-        isConnected: true,
         currentPage: StateType.CHAT,
-        user: { name: username, color: "blue", uuid: crypto.randomUUID() }, // TODO
+        user: {
+          name: username,
+          color: generateRandomColor(),
+          uuid: crypto.randomUUID(),
+        }, // TODO
       };
       this.mediator.changeState(newState);
     } catch (e) {

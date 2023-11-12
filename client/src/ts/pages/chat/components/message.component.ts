@@ -38,12 +38,12 @@ export class MessageComponent extends Component {
     }
 
     const messagesAuthorEl = this.querySelector(".message__author");
-    messagesAuthorEl.innerHTML = user.name;
+    messagesAuthorEl.textContent = user.name;
 
     const messagesDateEl = this.querySelector(".message__date");
-    messagesDateEl.innerHTML = `${date.getHours()}:${date.getMinutes()}`;
+    messagesDateEl.textContent = `${date.getHours()}:${date.getMinutes()}`;
 
     const messagesTextEl = this.querySelector(".message__text");
-    messagesTextEl.innerHTML = text;
+    messagesTextEl.textContent = text;
   }
 }

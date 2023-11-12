@@ -25,8 +25,10 @@ export class Mediator {
   }
 
   // websocket methods
-  public WSConnect() {
-    return this.webSocketService.connect();
+  public async WSConnect() {
+    await this.webSocketService.connect();
+    this.state.isConnected = true;
+    this.pages.forEach((p) => p.subscribeWebsocketMessages());
   }
 
   public WSDisconnect() {
