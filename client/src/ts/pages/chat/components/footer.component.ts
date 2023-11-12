@@ -1,6 +1,6 @@
 import { Component } from "../../component";
 import submitSVG from "../../../../svg/submit.svg";
-import { Message } from "../../../model/message";
+import { Message, MessageType } from "../../../model/message";
 
 export class FooterComponent extends Component {
   constructor() {
@@ -11,29 +11,23 @@ export class FooterComponent extends Component {
   HTMLTemplate(): string {
     return `
             <footer class="footer__submit">
-                <div class="submit__wrapper">
+                <form class="submit__wrapper">
                     <input type="text" placeholder="Twoja wiadomość..." />
                     <button type="submit" class="btn-submit-msg">
                         <img src='${submitSVG}' alt="Wyślij" />
                     </button>
-                </div>
+                </form>
             </footer>
         `;
   }
 
   connectedCallback() {
-    const btnSendMessageEl: Element = this.querySelector(".btn-submit-msg");
-    const inputEL = this.querySelector("input");
+    const inputEl = this.querySelector("input");
+    const formEl = this.querySelector("form");
 
-    btnSendMessageEl.addEventListener("click", (e) => {
+    formEl.addEventListener("submit", (e) => {
       e.preventDefault();
-      this.handleSubmitMessage(inputEL);
-    });
-
-    inputEL.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        this.handleSubmitMessage(inputEL);
-      }
+      this.handleSubmitMessage(inputEl);
     });
   }
 
@@ -44,6 +38,7 @@ export class FooterComponent extends Component {
         detail: <Message>{
           text: inputEl.value,
           date: new Date(),
+          type: MessageType.CHAT,
         },
       });
       this.dispatchEvent(sendMessageEvent);

@@ -2,9 +2,6 @@ import { Component } from "../../component";
 import { Message } from "../../../model/message";
 
 export class MessageComponent extends Component {
-  messagesAuthorEl: Element;
-  messagesDateEl: Element;
-  messagesTextEl: Element;
   message: Message;
 
   constructor() {
@@ -28,15 +25,19 @@ export class MessageComponent extends Component {
   }
 
   connectedCallback() {
-    const { user, date, text } = this.message;
+    const { user, date, text, isYour } = this.message;
 
-    this.messagesAuthorEl = this.querySelector(".message__author");
-    this.messagesAuthorEl.innerHTML = user.name;
+    if (isYour) {
+      this.querySelector(".message").classList.add("message--your");
+    }
 
-    this.messagesDateEl = this.querySelector(".message__date");
-    this.messagesDateEl.innerHTML = `${date.getHours()}:${date.getMinutes()}`;
+    const messagesAuthorEl = this.querySelector(".message__author");
+    messagesAuthorEl.innerHTML = user.name;
 
-    this.messagesTextEl = this.querySelector(".message__text");
-    this.messagesTextEl.innerHTML = text;
+    const messagesDateEl = this.querySelector(".message__date");
+    messagesDateEl.innerHTML = `${date.getHours()}:${date.getMinutes()}`;
+
+    const messagesTextEl = this.querySelector(".message__text");
+    messagesTextEl.innerHTML = text;
   }
 }

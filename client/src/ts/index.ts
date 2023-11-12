@@ -18,4 +18,4 @@ const start: StartPage = <StartPage>document.querySelector("start-page");
 const chat: ChatPage = <ChatPage>document.querySelector("chat-page");
 
 const mediator = new Mediator();
-mediator.register(start, chat);
+mediator.registerPages(start, chat);

@@ -1,6 +1,8 @@
 import { User } from "./user";
 
 export interface State {
+  isConnected: boolean;
+  previousPage: StateType;
   currentPage: StateType;
   user: User;
 }

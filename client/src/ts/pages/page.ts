@@ -21,5 +21,5 @@ export abstract class Page extends HTMLElement {
 
   abstract HTMLTemplate(): string;
 
-  abstract update(state: State);
+  abstract updateState(state: State);
 }

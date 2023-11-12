@@ -2,8 +2,10 @@ import { Page } from "../page";
 import { State, StateType } from "../../model/state";
 import { Message } from "../../model/message";
 import { MessagesComponent } from "./components/messages.component";
+import { HeaderComponent } from "./components/header.component";
 
 export class ChatPage extends Page {
+  private headerComponent: HeaderComponent;
   private messagesComponent: MessagesComponent;
 
   constructor() {
@@ -23,6 +25,9 @@ export class ChatPage extends Page {
   }
 
   connectedCallback() {
+    this.headerComponent = <HeaderComponent>(
+      this.querySelector("header-component")
+    );
     this.messagesComponent = <MessagesComponent>(
       this.querySelector("messages-component")
     );
@@ -33,17 +38,35 @@ export class ChatPage extends Page {
 
     this.addEventListener("disconnect", () => {
       this.messagesComponent.clear();
+      this.mediator.WSDisconnect();
       this.mediator.changeState(<State>{ currentPage: StateType.START_PAGE });
     });
 
     this.addEventListener("sendMessage", (e: CustomEvent<Message>) => {
       const message: Message = { ...e.detail, user: this.mediator.getUser() };
-
-      this.messagesComponent.addMessage(message);
+      this.mediator.WSSendMessage(message);
     });
   }
 
-  update(state: State) {
-    this.setVisible(state.currentPage === StateType.CHAT);
+  updateState(state: State) {
+    if (state.currentPage === StateType.CHAT) {
+      this.setVisible(true);
+
+      // login successful
+      if (state.isConnected && state.previousPage === StateType.START_PAGE) {
+        this.mediator.WSSubscribeMessages((message) => {
+          message.isYour = this.mediator.getUser().uuid === message.user.uuid;
+          this.messagesComponent.addMessage(message);
+        });
+
+        this.mediator.WSSubscribeMembers((users) => {
+          this.headerComponent.updateMembersCount(users.length);
+        });
+
+        this.mediator.WSLoginUser();
+      }
+    } else {
+      this.setVisible(false);
+    }
   }
 }

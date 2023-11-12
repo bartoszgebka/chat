@@ -11,7 +11,7 @@ export class HeaderComponent extends Component {
             <header class="header__members">
                 <div class="container">
                     <div class="btn-toolbar">
-                        <button class="show-members-btn">Pokaż uczestników <span>10</span></button>
+                        <button class="show-members-btn">Pokaż uczestników <span>0</span></button>
                         <button class="disconnect-btn">Rozłącz się</button>
                     </div>
                 </div>
@@ -36,5 +36,9 @@ export class HeaderComponent extends Component {
       const disconnectEvent = new CustomEvent("disconnect", { bubbles: true });
       this.dispatchEvent(disconnectEvent);
     });
+  }
+
+  public updateMembersCount(count: number) {
+    this.querySelector(".show-members-btn span").innerHTML = count.toString();
   }
 }
