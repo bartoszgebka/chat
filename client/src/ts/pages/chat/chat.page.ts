@@ -3,10 +3,12 @@ import { State, StateType } from "../../model/state";
 import { Message } from "../../model/message";
 import { MessagesComponent } from "./components/messages.component";
 import { HeaderComponent } from "./components/header.component";
+import {FooterComponent} from "./components/footer.component";
 
 export class ChatPage extends Page {
   private headerComponent: HeaderComponent;
   private messagesComponent: MessagesComponent;
+  private footerComponent: FooterComponent;
 
   constructor() {
     super(false);
@@ -30,6 +32,9 @@ export class ChatPage extends Page {
     );
     this.messagesComponent = <MessagesComponent>(
       this.querySelector("messages-component")
+    );
+    this.footerComponent = <FooterComponent>(
+        this.querySelector("footer-component")
     );
 
     this.registerHandlers();
@@ -59,6 +64,7 @@ export class ChatPage extends Page {
       // login successful
       if (state.isConnected && state.previousPage === StateType.START_PAGE) {
         this.mediator.WSLoginUser();
+        this.footerComponent.focusInput();
       }
     } else {
       this.setVisible(false);

@@ -24,6 +24,7 @@ export class StartPage extends Page {
   connectedCallback() {
     this.errorEl = this.querySelector(".error");
     const formEl: Element = this.querySelector("form");
+    formEl.querySelector('input').focus();
 
     formEl.addEventListener("submit", (e) => {
       e.preventDefault();

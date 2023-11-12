@@ -3,6 +3,7 @@ import submitSVG from "../../../../svg/submit.svg";
 import { Message, MessageType } from "../../../model/message";
 
 export class FooterComponent extends Component {
+  private inputEl : HTMLInputElement;
   constructor() {
     super();
     this.style.gridArea = "footer-submit";
@@ -22,27 +23,31 @@ export class FooterComponent extends Component {
   }
 
   connectedCallback() {
-    const inputEl = this.querySelector("input");
     const formEl = this.querySelector("form");
+    this.inputEl = formEl.querySelector("input");
 
     formEl.addEventListener("submit", (e) => {
       e.preventDefault();
-      this.handleSubmitMessage(inputEl);
+      this.handleSubmitMessage();
     });
   }
 
-  private handleSubmitMessage(inputEl: HTMLInputElement) {
-    if (inputEl.value) {
+  private handleSubmitMessage() {
+    if (this.inputEl.value) {
       const sendMessageEvent = new CustomEvent<Message>("sendMessage", {
         bubbles: true,
         detail: <Message>{
-          text: inputEl.value,
+          text: this.inputEl.value,
           date: new Date(),
           type: MessageType.CHAT,
         },
       });
       this.dispatchEvent(sendMessageEvent);
-      inputEl.value = null;
+      this.inputEl.value = null;
     }
+  }
+
+  public focusInput() {
+    this.inputEl.focus();
   }
 }
