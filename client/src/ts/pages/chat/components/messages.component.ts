@@ -31,6 +31,7 @@ export class MessagesComponent extends Component {
             )}'></message-component>
         `;
     this.messagesWrapperEl.insertAdjacentHTML("beforeend", markup);
+    this.scrollTop = this.scrollHeight;
   }
 
   public clear() {
