@@ -4,14 +4,14 @@ import { User } from "./model/user";
 import { WebSocketService } from "./services/web.socket.service";
 import { Message } from "./model/message";
 
-export class Mediator {
+class Mediator {
   private state: State = <State>{ currentPage: StateType.START_PAGE };
   private pages: Page[] = [];
   private webSocketService: WebSocketService = new WebSocketService();
 
-  public registerPages(...pages: Page[]) {
-    this.pages = [...pages];
-    this.pages.forEach((p) => p.setMediator(this));
+  public registerPage(page: Page) {
+    this.pages.push(page);
+    page.setMediator(this);
   }
 
   public changeState(state: State) {
@@ -51,3 +51,5 @@ export class Mediator {
     this.webSocketService.sendMessage(message);
   }
 }
+
+export const mediator = new Mediator();

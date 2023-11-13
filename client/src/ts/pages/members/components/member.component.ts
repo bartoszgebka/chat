@@ -1,7 +1,9 @@
 import { Component } from "../../component";
 import { User } from "../../../model/user";
 import { Helpers } from "../../../helper/helpers";
+import { WebComponent } from "../../../helper/web.component.decorator";
 
+@WebComponent("member-component")
 export class MemberComponent extends Component {
   private user: User;
 

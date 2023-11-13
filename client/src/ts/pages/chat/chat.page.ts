@@ -4,7 +4,9 @@ import { Message } from "../../model/message";
 import { MessagesComponent } from "./components/messages.component";
 import { HeaderComponent } from "./components/header.component";
 import { FooterComponent } from "./components/footer.component";
+import { WebComponent } from "../../helper/web.component.decorator";
 
+@WebComponent("chat-page")
 export class ChatPage extends Page {
   private headerComponent: HeaderComponent;
   private messagesComponent: MessagesComponent;

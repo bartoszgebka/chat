@@ -2,7 +2,9 @@ import { Page } from "../page";
 import { State, StateType } from "../../model/state";
 import closeSVG from "../../../svg/close.svg";
 import { User } from "../../model/user";
+import { WebComponent } from "../../helper/web.component.decorator";
 
+@WebComponent("members-page")
 export class MembersPage extends Page {
   private membersListEl: Element;
 

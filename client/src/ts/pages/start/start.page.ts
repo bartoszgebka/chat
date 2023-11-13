@@ -2,7 +2,9 @@ import { Page } from "../page";
 import { State, StateType } from "../../model/state";
 import { Helpers } from "../../helper/helpers";
 import { v4 as uuidv4 } from "uuid";
+import { WebComponent } from "../../helper/web.component.decorator";
 
+@WebComponent("start-page")
 export class StartPage extends Page {
   private errorEl: Element;
   constructor() {

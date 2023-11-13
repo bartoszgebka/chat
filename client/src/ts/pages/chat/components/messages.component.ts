@@ -1,6 +1,8 @@
 import { Component } from "../../component";
 import { Message } from "../../../model/message";
+import { WebComponent } from "../../../helper/web.component.decorator";
 
+@WebComponent("messages-component")
 export class MessagesComponent extends Component {
   messagesWrapperEl: Element;
   constructor() {

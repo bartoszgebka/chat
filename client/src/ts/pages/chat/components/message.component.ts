@@ -1,7 +1,9 @@
 import { Component } from "../../component";
 import { Message, MessageType } from "../../../model/message";
 import { Helpers } from "../../../helper/helpers";
+import { WebComponent } from "../../../helper/web.component.decorator";
 
+@WebComponent("message-component")
 export class MessageComponent extends Component {
   message: Message;
 

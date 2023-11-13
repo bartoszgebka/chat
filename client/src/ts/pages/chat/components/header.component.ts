@@ -1,5 +1,7 @@
 import { Component } from "../../component";
+import { WebComponent } from "../../../helper/web.component.decorator";
 
+@WebComponent("header-component")
 export class HeaderComponent extends Component {
   constructor() {
     super();

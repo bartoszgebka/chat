@@ -1,7 +1,9 @@
 import { Component } from "../../component";
 import submitSVG from "../../../../svg/submit.svg";
 import { Message, MessageType } from "../../../model/message";
+import { WebComponent } from "../../../helper/web.component.decorator";
 
+@WebComponent("footer-component")
 export class FooterComponent extends Component {
   private inputEl: HTMLInputElement;
   constructor() {
