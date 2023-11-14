@@ -11,7 +11,6 @@ class Mediator {
 
   public registerPage(page: Page) {
     this.pages.push(page);
-    page.setMediator(this);
   }
 
   public changeState(state: State) {

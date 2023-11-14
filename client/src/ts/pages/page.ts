@@ -1,18 +1,14 @@
 import { State } from "../model/state";
-import { Mediator } from "../mediator";
+import { mediator } from "../mediator";
 
 export abstract class Page extends HTMLElement {
-  protected mediator: Mediator;
+  protected mediator = mediator;
 
-  constructor(visible: boolean) {
+  protected constructor(visible: boolean) {
     super();
     this.setVisible(visible);
     this.style.height = "100%";
     this.innerHTML = this.HTMLTemplate();
-  }
-
-  public setMediator(mediator: Mediator) {
-    this.mediator = mediator;
   }
 
   protected setVisible(visible: boolean) {
@@ -21,7 +17,7 @@ export abstract class Page extends HTMLElement {
 
   abstract HTMLTemplate(): string;
 
-  abstract updateState(state: State);
+  abstract updateState(state: State): void;
 
   subscribeWebsocketMessages() {}
 }
